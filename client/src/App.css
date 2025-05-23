@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: #1e1e2f;
+  color: #f0f0f0;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+main .left {
+  background-color: #111;
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main .left .code {
+  flex: 1;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+main .left .review {
+  margin-top: 1rem;
+  background: linear-gradient(to right, #00adb5, #00ffcc);
+  color: #1e1e2f;
+  text-align: center;
+  padding: 0.6rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+main .left .review:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to right, #00ffc3, #00adb5);
+}
+
+main .right {
+  background-color: #2b2b3d;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  overflow: auto;
+  line-height: 1.6;
+}
+
+main .right pre {
+  background-color: #1e1e2f;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+main .right code {
+  font-family: "Fira Code", monospace;
+}
