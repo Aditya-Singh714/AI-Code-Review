@@ -36,7 +36,7 @@ app.listen(PORT, () => {
     setReview(""); // Clear previous review
     try {
       const response = await axios.post(
-        "https://ai-code-review-l74v.onrender.com",
+        "https://ai-code-review-l74v.onrender.com/ai/get-review",
         {
           code,
         }
