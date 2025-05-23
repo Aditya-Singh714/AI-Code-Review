@@ -35,9 +35,12 @@ app.listen(PORT, () => {
     setLoading(true);
     setReview(""); // Clear previous review
     try {
-      const response = await axios.post("http://localhost:3000/ai/get-review", {
-        code,
-      });
+      const response = await axios.post(
+        "https://ai-code-review-l74v.onrender.com",
+        {
+          code,
+        }
+      );
       setReview(response.data);
     } catch (error) {
       setReview("❌ Error fetching review.", error);
