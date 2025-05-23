@@ -41,6 +41,26 @@ main .left {
   flex-direction: column;
 }
 
+.instructions {
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+.instructions h2 {
+  color: #00adb5;
+  margin-bottom: 0.5rem;
+}
+
+.instructions ol {
+  padding-left: 1.2rem;
+}
+
+.review.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 main .left .code {
   flex: 1;
   border-radius: 0.5rem;

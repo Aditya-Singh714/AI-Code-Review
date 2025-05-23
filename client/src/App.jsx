@@ -9,20 +9,7 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [code, setCode] = useState(`const express = require('express');
-const app = express();
-
-const PORT = process.env.PORT || 3000;
-
-// Root route
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(\`✅ Server is running on port \${PORT}\`);
-});`);
+  const [code, setCode] = useState("");
 
   const [review, setReview] = useState(``);
   const [loading, setLoading] = useState(false);
@@ -52,6 +39,17 @@ app.listen(PORT, () => {
   return (
     <main>
       <div className="left">
+        <div className="instructions">
+          <h2>👨‍💻 How to Use:</h2>
+          <ol>
+            <li>Type or paste your code in the editor below.</li>
+            <li>
+              Click on <strong>"Review Code"</strong> to get suggestions.
+            </li>
+            <li>See the AI-powered review on the right.</li>
+          </ol>
+        </div>
+
         <div className="code">
           <Editor
             value={code}
@@ -60,6 +58,7 @@ app.listen(PORT, () => {
               prism.highlight(code, prism.languages.javascript, "javascript")
             }
             padding={10}
+            placeholder="// Paste or type your code here"
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace',
               fontSize: 16,
@@ -70,7 +69,11 @@ app.listen(PORT, () => {
             }}
           />
         </div>
-        <div onClick={reviewCode} className="review">
+
+        <div
+          onClick={code.trim() ? reviewCode : null}
+          className={`review ${!code.trim() ? "disabled" : ""}`}
+        >
           Review Code
         </div>
       </div>
@@ -87,8 +90,8 @@ app.listen(PORT, () => {
           <div className="placeholder">
             <h2>🛠️ Review your code</h2>
             <p>
-              Click on the <strong>Review Code</strong> button to get
-              suggestions.
+              Paste your code on the left and click{" "}
+              <strong>"Review Code"</strong> to see AI suggestions here.
             </p>
           </div>
         )}
